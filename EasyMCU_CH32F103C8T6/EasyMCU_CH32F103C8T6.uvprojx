@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>SRC\CMSIS;SRC\Debug;SRC\Startup;SRC\StdPeriphDriver\inc;SRC\StdPeriphDriver\src;.\user;..\SimulateCDC;.\user\UART;.\user\USB_Device</IncludePath>
+              <IncludePath>.\SRC\CMSIS;.\SRC\Debug;.\SRC\Startup;.\SRC\StdPeriphDriver\inc;.\SRC\StdPeriphDriver\src;.\user;..\SimulateCDC;.\user\UART;.\user\HUSB_Device;.\user\USBLIB\CONFIG;.\user\USBLIB\USB-Driver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -399,6 +399,11 @@
               <FileType>1</FileType>
               <FilePath>.\user\system_ch32f10x.c</FilePath>
             </File>
+            <File>
+              <FileName>usbd_compatibility_hid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\usbd_compatibility_hid.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -412,17 +417,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>usb_device</GroupName>
+          <GroupName>husb_device</GroupName>
           <Files>
             <File>
-              <FileName>usb_desc.c</FileName>
+              <FileName>husb_desc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\USB_Device\usb_desc.c</FilePath>
+              <FilePath>.\user\HUSB_Device\husb_desc.c</FilePath>
             </File>
             <File>
               <FileName>ch32f10x_usbfs_device.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\user\USB_Device\ch32f10x_usbfs_device.c</FilePath>
+              <FilePath>.\user\HUSB_Device\ch32f10x_usbfs_device.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -563,6 +568,76 @@
               <FileName>ch32f10x_wwdg.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SRC\StdPeriphDriver\src\ch32f10x_wwdg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>usbcore</GroupName>
+          <Files>
+            <File>
+              <FileName>usb_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_int.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_mem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_mem.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_regs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_regs.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_sil.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\USB-Driver\src\usb_sil.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>usbconfig</GroupName>
+          <Files>
+            <File>
+              <FileName>hw_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\hw_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_desc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\usb_desc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_endp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\usb_endp.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_istr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\usb_istr.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_prop.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\usb_prop.c</FilePath>
+            </File>
+            <File>
+              <FileName>usb_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\USBLIB\CONFIG\usb_pwr.c</FilePath>
             </File>
           </Files>
         </Group>

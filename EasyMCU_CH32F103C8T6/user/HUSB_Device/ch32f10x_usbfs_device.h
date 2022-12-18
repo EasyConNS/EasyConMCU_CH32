@@ -13,7 +13,7 @@
 
 #include "string.h"
 #include "debug.h"
-#include "usb_desc.h"
+#include "husb_desc.h"
 #include "ch32f10x_usb.h"
 #include "UART.h"
 

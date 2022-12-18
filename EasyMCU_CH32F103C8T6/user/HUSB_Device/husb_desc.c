@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: Apache-2.0
  *******************************************************************************/
 
-#include "usb_desc.h"
+#include "husb_desc.h"
 
 /* Device Descriptor */
 const uint8_t  MyDevDescr[] =
