@@ -5,7 +5,8 @@
 // some incude files for var type, you need change to your device framework files
 /**********************************************************************/
 #include <stdint.h>
-#include <stdbool.h>
+//#include <stdbool.h>
+#include "usb_type.h"
 #include <stdlib.h>
 #include <string.h>
 #include "HID.h"

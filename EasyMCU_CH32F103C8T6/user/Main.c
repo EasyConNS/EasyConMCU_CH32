@@ -34,6 +34,7 @@
 #include "usb_pwr.h"
 #include "usb_prop.h"
 #include "usbd_compatibility_hid.h"
+#include "EasyCon_API.h"
 /* Global define */
 
 /* Global Variable */    
@@ -74,27 +75,32 @@ int main(void)
 	printf("USBHD Compatibility HID Example\r\n");
 
 	/* Variables init */
-    Var_Init();
+  //  Var_Init();
 
 	/* UART2 init */
-    UART2_Init();
-    UART2_DMA_Init();
+  //  UART2_Init();
+  //  UART2_DMA_Init();
 
 	/* Timer init */
     TIM2_Init();
     
-    /* USBD init */
+  /* USBD init */
 	Set_USBConfig(); 
-    USB_Init();	    
+  USB_Init();	    
  	USB_Interrupts_Config();    
     
 	while(1)
 	{
-	    if( bDeviceState == CONFIGURED )
-	    {
-			UART2_Rx_Service();
-			UART2_Tx_Service();
-	    }
+		// Process local script instructions.
+		EasyCon_script_task();
+		
+		// send report
+		HIDTask();
+//	    if( bDeviceState == CONFIGURED )
+//	    {
+//			UART2_Rx_Service();
+//			UART2_Tx_Service();
+//	    }
 	}
 }
 

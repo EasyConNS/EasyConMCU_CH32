@@ -1,5 +1,7 @@
-#pragma once
-#include "stm32f1xx_hal.h"
+#ifndef __HID_H
+#define __HID_H 	
+
+#include "usbd_compatibility_hid.h"
 
 #define HAT_TOP 0x00
 #define HAT_TOP_RIGHT 0x01
@@ -80,3 +82,4 @@ void ReleaseButtons(const uint16_t Button);
 void SetHATSwitch(const uint8_t HAT);
 void SetLeftStick(const uint8_t LX, const uint8_t LY);
 void SetRightStick(const uint8_t RX, const uint8_t RY);
+#endif

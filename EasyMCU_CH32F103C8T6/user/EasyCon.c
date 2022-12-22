@@ -1,12 +1,11 @@
 #include "EasyCon.h"
-//#include "EasyCon_API.h"
 
 // global variables
 static uint8_t mem[MEM_SIZE] = {0xFF, 0xFF, VERSION}; // preallocated memory for all purposes, as well as static instruction carrier
 
 // static variables
 static size_t serial_buffer_length = 0;               // current length of serial buffer
-static bool serial_command_ready = false;             // CMD_READY acknowledged, ready to receive command byte
+static bool serial_command_ready = FALSE;             // CMD_READY acknowledged, ready to receive command byte
 static uint8_t *flash_addr = 0;                       // start location for EEPROM flashing
 static uint16_t flash_index = 0;                      // current buffer index
 static uint16_t flash_count = 0;                      // number of bytes expected for this time
@@ -14,7 +13,7 @@ static uint8_t *script_addr = 0;                      // address of next instruc
 static uint8_t *script_eof = 0;                       // address of EOF
 static uint16_t tail_wait = 0;                        // insert an extra wait before next instruction (used by compressed instruction)
 static uint32_t timer_elapsed = 0;                    // previous execution time
-static bool auto_run = false;
+static bool auto_run = FALSE;
 static volatile uint8_t echo_ms = 0; // echo counter
 
 // set led state
@@ -115,11 +114,11 @@ bool EasyCon_is_script_running(void)
 {
     if(_script_running == 1)
     {
-        return true;
+        return TRUE;
     }
     else
     {
-        return false;
+        return FALSE;
     }
 }
 
@@ -169,7 +168,7 @@ void EasyCon_script_stop(void)
 // Process script instructions.
 void EasyCon_script_task(void)
 {
-    while (true)
+    while (TRUE)
     {
         // status check
         if (!_script_running)
@@ -860,7 +859,7 @@ void EasyCon_serial_task(int16_t byte)
             if (serial_buffer_length == 1 && !serial_command_ready && byte == CMD_READY)
             {
                 // comand ready
-                serial_command_ready = true;
+                serial_command_ready = TRUE;
             }
             else if (serial_buffer_length == 8)
             {
@@ -884,11 +883,11 @@ void EasyCon_serial_task(int16_t byte)
                     // send ACK
                     EasyCon_serial_send(REPLY_ACK);
                 }
-                serial_command_ready = false;
+                serial_command_ready = FALSE;
             }
             else if (serial_command_ready)
             {
-                serial_command_ready = false;
+                serial_command_ready = FALSE;
                 // command
                 switch (byte)
                 {
@@ -936,7 +935,7 @@ void EasyCon_serial_task(int16_t byte)
                     EasyCon_serial_send(_ledflag);
                     break;
                 case CMD_READY:
-                    serial_command_ready = true;
+                    serial_command_ready = TRUE;
                     break;
                 case CMD_HELLO:
                     EasyCon_serial_send(REPLY_HELLO);
@@ -998,7 +997,7 @@ bool EasyCon_need_send_report(void)
 {
     if(echo_ms==0)
     {
-        return true;
+        return TRUE;
     }
-    return false;
+    return FALSE;
 }

@@ -23,12 +23,15 @@
 #define SET_REPORT_WAIT_DEAL          0x01
 
 
-extern uint8_t  HID_Report_Buffer[64];               // HID Report Buffer
+extern uint8_t  HID_Report_Buffer[DEF_USBD_MAX_PACK_SIZE];               // HID Report Buffer
+extern uint8_t  HIDTxBuffer[DEF_USBD_MAX_PACK_SIZE];
 
 extern void UART2_Tx_Service( void );
 extern void UART2_Rx_Service( void );
 extern void UART2_Init( void );
 extern void UART2_DMA_Init( void );
 extern void TIM2_Init( void );
+extern uint8_t USBD_ENDPx_DataUp( uint8_t endp, uint8_t *pbuf, uint16_t len );
+extern uint8_t USBD_Endp2_Busy;
 
 #endif /* USER_USBD_COMPATIBILITY_HID_H_ */

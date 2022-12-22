@@ -22,13 +22,12 @@ volatile uint16_t UART2_Rx_RemainLen = 0;                                       
 volatile uint16_t UART2_Rx_Deal_Ptr = 0;                                          // UART2 RX data deal pointer
 
 
-extern uint8_t USBD_ENDPx_DataUp( uint8_t endp, uint8_t *pbuf, uint16_t len );
-extern uint8_t USBD_Endp2_Busy;
+
 
 /*********************************************************************
  * @fn      TIM2_Init
  *
- * @brief   Timer2 100us initialisation
+ * @brief   Timer2 1000us initialisation
  *
  * @return  none
  */
@@ -39,7 +38,7 @@ void TIM2_Init( void )
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
     TIM_TimeBaseStructure.TIM_Period = 71;
-    TIM_TimeBaseStructure.TIM_Prescaler =100;
+    TIM_TimeBaseStructure.TIM_Prescaler =1000;
     TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;
     TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
@@ -61,9 +60,11 @@ void TIM2_Init( void )
  *
  * @return  none
  */
+extern void EasyCon_tick(void);
 void TIM2_IRQHandler(void)
 {
-    UART2_TimeOut++;
+		EasyCon_tick();
+    //UART2_TimeOut++;
     TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
 }
 

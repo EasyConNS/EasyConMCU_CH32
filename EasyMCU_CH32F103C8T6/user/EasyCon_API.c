@@ -3,8 +3,8 @@
 /**********************************************************************/
 // some incude files for funcs, you need change to your device framework files
 /**********************************************************************/
-#include "flash.h"
-#include "led.h"
+//#include "flash.h"
+//#include "led.h"
 
 /**********************************************************************/
 // EasyCon API, you need to implement all of the AIP
@@ -15,7 +15,7 @@
  */
 uint8_t EasyCon_read_byte(uint8_t* addr)
 {
-    return flash_ecScript_read8B((uint16_t)addr);
+    return 0;//flash_ecScript_read8B((uint16_t)addr);
 }
 
 /* EasyCon write n byte to E2Prom or flash 
@@ -23,7 +23,7 @@ uint8_t EasyCon_read_byte(uint8_t* addr)
  */
 void EasyCon_write_data(uint8_t* addr,uint8_t* data,uint16_t len)
 {
-    flash_ecScript_write8B(data,len,(uint16_t)addr);
+    //flash_ecScript_write8B(data,len,(uint16_t)addr);
 }
 
 /* EasyCon start write to E2Prom or flash callback
@@ -33,36 +33,36 @@ void EasyCon_write_data(uint8_t* addr,uint8_t* data,uint16_t len)
  */
 void EasyCon_write_start(uint8_t mode)
 {
-    uint8_t * p_buffer;
-    // no need save data
-    if(mode == 0)
-    {
-        flash_writeUnlock();
-        flash_writeErase(ecMemAddr_Start, 1);
-    }
+//    uint8_t * p_buffer;
+//    // no need save data
+//    if(mode == 0)
+//    {
+//        flash_writeUnlock();
+//        flash_writeErase(ecMemAddr_Start, 1);
+//    }
 
-    // need save data
-    if(mode == 1)
-    {
-        flash_writeUnlock();
-        // save all data
-        p_buffer = (uint8_t *)malloc(MEM_SIZE);
-        flash_ecScript_read(p_buffer,MEM_SIZE,0);
-        // clean
-        flash_writeErase(ecMemAddr_Start, 1);
-        // recover it
-        flash_ecScript_write8B(p_buffer,MEM_SIZE,0);
-        free(p_buffer);
-    }
-		
-		if(mode == 2)
-		{
-			// need clean when first time call
-			if(flash_writeUnlock()==0)
-			{
-				flash_writeErase(ecMemAddr_Start, 1);
-			}
-		}
+//    // need save data
+//    if(mode == 1)
+//    {
+//        flash_writeUnlock();
+//        // save all data
+//        p_buffer = (uint8_t *)malloc(MEM_SIZE);
+//        flash_ecScript_read(p_buffer,MEM_SIZE,0);
+//        // clean
+//        flash_writeErase(ecMemAddr_Start, 1);
+//        // recover it
+//        flash_ecScript_write8B(p_buffer,MEM_SIZE,0);
+//        free(p_buffer);
+//    }
+//		
+//		if(mode == 2)
+//		{
+//			// need clean when first time call
+//			if(flash_writeUnlock()==0)
+//			{
+//				flash_writeErase(ecMemAddr_Start, 1);
+//			}
+//		}
 }
 
 /* EasyCon write to E2Prom or flash end callback 
@@ -72,7 +72,7 @@ void EasyCon_write_start(uint8_t mode)
  */
 void EasyCon_write_end(uint8_t mode)
 {
-    flash_writeLock();
+    //flash_writeLock();
 }
 
 /* running led on
@@ -80,7 +80,7 @@ void EasyCon_write_end(uint8_t mode)
  */
 void EasyCon_runningLED_on(void)
 {
-	ledb_on();
+	//ledb_on();
 }
 
 /* running led off
@@ -88,7 +88,7 @@ void EasyCon_runningLED_on(void)
  */
 void EasyCon_runningLED_off(void)
 {
-    ledb_off();
+    //ledb_off();
 }
 
 /* data led blink
@@ -104,7 +104,8 @@ void EasyCon_blink_led(void)
  */
 void EasyCon_serial_send(const char DataByte)
 {
-    umain_send8B((uint8_t *)&DataByte, 1);
+		USART_SendData(USART1, (u8)DataByte);
+    //umain_send8B((uint8_t *)&DataByte, 1);
     EasyCon_blink_led();
 }
 

@@ -1,12 +1,7 @@
 #include "HID.h"
-#include "usbd_customhid.h" 
-extern USBD_HandleTypeDef hUsbDeviceFS; 
+#include "EasyCon_API.h"
 
 USB_JoystickReport_Input_t next_report;
-char *TAG_USBD = "[USBD]";
-char *TAG_SEND_BUF = "[SB]";
-char *TAG_SEND_RAW_BUF = "[SWB]";
-char *TAG_SEND_INIT_BUF = "[SIB]";
 
 // Reset report to default.
 void ResetReport(void)
@@ -31,42 +26,31 @@ void SetRightStick(const uint8_t RX, const uint8_t RY)
   next_report.RX = RX; next_report.RY = RY;
 }
 
-
-/* NNK: 日志打印函数 */
-static void usbd_send_log(uint8_t *send_buf, char *TAG)
-{
-	printf("%s %s:", TAG_USBD, TAG);
-	printx("%02x %02x %02x %02x %02x %02x %02x %02x", send_buf[0], send_buf[1], send_buf[2], send_buf[3], send_buf[4], send_buf[5], send_buf[6], send_buf[7]);
-}
-
-/* NNK: 底层控制函数 */
-/* NNK: USBD发送数组: usbd_send_buf[8] */
 int usbd_send(uint8_t *usbd_send_buf, char *TAG)
 {
-	ledb_on();
-	//usbd_send_log(usbd_send_buf, TAG);
-
-	if(USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS, usbd_send_buf, sizeof(next_report)) == USBD_BUSY)	
+	//ledb_on();
+	HIDTxBuffer[0] = sizeof(next_report) + 1;
+	memcpy(HIDTxBuffer + 1,&next_report,sizeof(next_report));
+	
+	if(USBD_ENDPx_DataUp( ENDP2, HIDTxBuffer, sizeof(next_report) + 1 ) == NoREADY)	
 	{
-		return USBD_BUSY;
+		return 1;
 	}
-	ledb_off();
-	return USBD_OK;
+	//ledb_off();
+	return 0;
 }
-
 
 void HIDInit(void)
 {
   ResetReport();
-	usbd_send((uint8_t *)&next_report, TAG_SEND_INIT_BUF);
-	
+	usbd_send((uint8_t *)&next_report, NULL);
 }
 
 void Report_Task(void)
 {
 	if(EasyCon_need_send_report())
 	{
-		usbd_send((uint8_t *)&next_report, TAG_SEND_BUF);
+		usbd_send((uint8_t *)&next_report, NULL);
 		EasyCon_report_send_callback();
 	}
 }

@@ -326,7 +326,7 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
@@ -403,6 +403,21 @@
               <FileName>usbd_compatibility_hid.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\usbd_compatibility_hid.c</FilePath>
+            </File>
+            <File>
+              <FileName>HID.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\HID.c</FilePath>
+            </File>
+            <File>
+              <FileName>EasyCon.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\EasyCon.c</FilePath>
+            </File>
+            <File>
+              <FileName>EasyCon_API.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\EasyCon_API.c</FilePath>
             </File>
           </Files>
         </Group>

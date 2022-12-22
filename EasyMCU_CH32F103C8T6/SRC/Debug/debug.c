@@ -115,6 +115,23 @@ int fputc(int data, FILE *f)
 }
 
 /*********************************************************************
+ * @fn      USART1_IRQHandler
+ *
+ * @brief   This function handles USART1 global interrupt request.
+ *
+ * @return  none
+ */
+extern void EasyCon_serial_task(int16_t byte);
+void USART1_IRQHandler( void )
+{
+    if( USART_GetITStatus( USART1, USART_IT_RXNE ) != RESET )
+    {
+        //USART_ReceiveData( USART1 );
+				EasyCon_serial_task(USART_ReceiveData( USART1 ));
+    }
+}
+
+/*********************************************************************
  * @fn      USART_Printf_Init
  *
  * @brief   Initializes the USARTx peripheral.
@@ -127,6 +144,7 @@ void USART_Printf_Init(u32 baudrate)
 {
   GPIO_InitTypeDef GPIO_InitStructure;
   USART_InitTypeDef USART_InitStructure;
+	NVIC_InitTypeDef  NVIC_InitStructure = {0};
 	
 #if (DEBUG == DEBUG_UART1)	
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1|RCC_APB2Periph_GPIOA, ENABLE);	
@@ -161,12 +179,20 @@ void USART_Printf_Init(u32 baudrate)
   USART_InitStructure.USART_StopBits = USART_StopBits_1;
   USART_InitStructure.USART_Parity = USART_Parity_No;
   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-  USART_InitStructure.USART_Mode = USART_Mode_Tx;
+  USART_InitStructure.USART_Mode = USART_Mode_Tx|USART_Mode_Rx;
 
 #if (DEBUG == DEBUG_UART1)	
   USART_Init(USART1, &USART_InitStructure); 
-  USART_Cmd(USART1, ENABLE);  
+	USART1->STATR = 0x00C0;
+  USART_ITConfig( USART1, USART_IT_RXNE, ENABLE );
+  
+	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init( &NVIC_InitStructure );
 	
+	USART_Cmd(USART1, ENABLE);
 #elif (DEBUG == DEBUG_UART2)	
   USART_Init(USART2, &USART_InitStructure); 
   USART_Cmd(USART2, ENABLE);
