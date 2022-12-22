@@ -42,31 +42,31 @@ uint8_t RCC_Configuration( void )
  *
  * @return  none
  */
-void TIM2_Init( void )
-{
-    TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure = {0};
+//void TIM2_Init( void )
+//{
+//    TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure = {0};
 
-    TIM_DeInit( TIM2 );
+//    TIM_DeInit( TIM2 );
 
-    /* Time base configuration */
-    TIM_TimeBaseStructure.TIM_Period = 100;
-    TIM_TimeBaseStructure.TIM_Prescaler = 72;
-    TIM_TimeBaseStructure.TIM_ClockDivision = 0;
-    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInit( TIM2, &TIM_TimeBaseStructure );
+//    /* Time base configuration */
+//    TIM_TimeBaseStructure.TIM_Period = 100;
+//    TIM_TimeBaseStructure.TIM_Prescaler = 72;
+//    TIM_TimeBaseStructure.TIM_ClockDivision = 0;
+//    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
+//    TIM_TimeBaseInit( TIM2, &TIM_TimeBaseStructure );
 
-    /* Clear TIM2 update pending flag */
-    TIM_ClearFlag( TIM2, TIM_FLAG_Update );
+//    /* Clear TIM2 update pending flag */
+//    TIM_ClearFlag( TIM2, TIM_FLAG_Update );
 
-    /* TIM IT enable */
-    TIM_ITConfig( TIM2, TIM_IT_Update, ENABLE );
+//    /* TIM IT enable */
+//    TIM_ITConfig( TIM2, TIM_IT_Update, ENABLE );
 
-    /* Enable Interrupt */
-    NVIC_EnableIRQ( TIM2_IRQn );
+//    /* Enable Interrupt */
+//    NVIC_EnableIRQ( TIM2_IRQn );
 
-    /* TIM2 enable counter */
-    TIM_Cmd( TIM2, ENABLE );
-}
+//    /* TIM2 enable counter */
+//    TIM_Cmd( TIM2, ENABLE );
+//}
 
 /*********************************************************************
  * @fn      UART1_CfgInit

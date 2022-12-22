@@ -28,19 +28,19 @@ void NMI_Handler( void )
  *
  * @return  none
  */
-void TIM2_IRQHandler( void )
-{
-    /* Test IO */
-    static uint8_t tog;
-    tog ? (GPIOA->BSHR = GPIO_Pin_15):(GPIOA->BCR = GPIO_Pin_15);
-    tog ^= 1;
-    /* uart timeout counts */
-    Uart.Rx_TimeOut++;
-    Uart.USB_Up_TimeOut++;
+//void TIM2_IRQHandler( void )
+//{
+//    /* Test IO */
+//    static uint8_t tog;
+//    tog ? (GPIOA->BSHR = GPIO_Pin_15):(GPIOA->BCR = GPIO_Pin_15);
+//    tog ^= 1;
+//    /* uart timeout counts */
+//    Uart.Rx_TimeOut++;
+//    Uart.USB_Up_TimeOut++;
 
-    /* clear status */
-    TIM_ClearITPendingBit( TIM2, TIM_IT_Update );
-}
+//    /* clear status */
+//    TIM_ClearITPendingBit( TIM2, TIM_IT_Update );
+//}
 
 
 /*********************************************************************

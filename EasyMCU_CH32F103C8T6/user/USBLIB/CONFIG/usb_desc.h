@@ -30,10 +30,10 @@
        
 #define USBD_SIZE_DEVICE_DESC        18
 #define USBD_SIZE_CONFIG_DESC        41
-#define USBD_SIZE_REPORT_DESC        34
+#define USBD_SIZE_REPORT_DESC        86
 #define USBD_SIZE_STRING_LANGID      4
-#define USBD_SIZE_STRING_VENDOR      14
-#define USBD_SIZE_STRING_PRODUCT     18
+#define USBD_SIZE_STRING_VENDOR      16
+#define USBD_SIZE_STRING_PRODUCT     46
 #define USBD_SIZE_STRING_SERIAL      22
 
 

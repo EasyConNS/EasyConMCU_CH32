@@ -125,7 +125,7 @@
         <SetRegEntry>
           <Number>0</Number>
           <Key>ST-LINKIII-KEIL_SWO</Key>
-          <Name>-U2D0512061316303030303032 -O206 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("") -D00(00000000) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0CH32F1xx.FLM -FS08000000 -FL010000 -FP0($$Device:CH32F103C8$Flash\CH32F1xx.FLM)</Name>
+          <Name>-U2D0512061316303030303032 -O239 -SF10000 -C0 -A0 -I0 -HNlocalhost -HP7184 -P1 -N00("") -D00(00000000) -L00(0) -TO131090 -TC10000000 -TT10000000 -TP21 -TDS8000 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15 -FD20000000 -FC1000 -FN1 -FF0CH32F1xx.FLM -FS08000000 -FL010000 -FP0($$Device:CH32F103C8$Flash\CH32F1xx.FLM)</Name>
         </SetRegEntry>
         <SetRegEntry>
           <Number>0</Number>
@@ -244,7 +244,7 @@
 
   <Group>
     <GroupName>uart</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -275,8 +275,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\user\HUSB_Device\husb_desc.c</PathWithFileName>
-      <FilenameWithoutPath>husb_desc.c</FilenameWithoutPath>
+      <PathWithFileName>.\user\HUSB_Device\ch32f10x_usbfs_device.c</PathWithFileName>
+      <FilenameWithoutPath>ch32f10x_usbfs_device.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -287,8 +287,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\user\HUSB_Device\ch32f10x_usbfs_device.c</PathWithFileName>
-      <FilenameWithoutPath>ch32f10x_usbfs_device.c</FilenameWithoutPath>
+      <PathWithFileName>.\user\HUSB_Device\husb_desc.c</PathWithFileName>
+      <FilenameWithoutPath>husb_desc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -296,7 +296,7 @@
 
   <Group>
     <GroupName>startup</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -316,7 +316,7 @@
 
   <Group>
     <GroupName>core</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -336,7 +336,7 @@
 
   <Group>
     <GroupName>debug</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -696,7 +696,7 @@
 
   <Group>
     <GroupName>usbconfig</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

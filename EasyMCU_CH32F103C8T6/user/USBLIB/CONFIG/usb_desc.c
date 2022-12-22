@@ -19,8 +19,8 @@ const uint8_t  USBD_DeviceDescriptor[] = {
     0x00,                            // bDeviceSubClass 
     0x00,                            // bDeviceProtocol 
     DEF_USBD_UEP0_SIZE,              // bMaxPacketSize0 8
-    0x86, 0x1A,                      // idVendor 0x1A86
-    0x07, 0xFE,                      // idProduct 0xFE07
+    0x0D, 0x0F,                      // idVendor 0x0F0D Hori Co., Ltd
+    0x92, 0x00,                      // idProduct 0x0092
     0x00, 0x01,                      // bcdDevice 2.00
     0x01,                            // iManufacturer (String Index)
     0x02,                            // iProduct (String Index)
@@ -89,14 +89,16 @@ const uint8_t USBD_StringLangID[USBD_SIZE_STRING_LANGID] = {
 const uint8_t USBD_StringVendor[USBD_SIZE_STRING_VENDOR] = {
 	USBD_SIZE_STRING_VENDOR,    
 	USB_STRING_DESCRIPTOR_TYPE,           
-	'w',0,'c',0,'h',0,'.',0,'c',0,'n',0
+	'E',0,'a',0,'s',0,'y',0,'c',0,'o',0,'n',0
 };
 
 /* USB Device String Product */
 const uint8_t USBD_StringProduct[USBD_SIZE_STRING_PRODUCT] = {
 	USBD_SIZE_STRING_PRODUCT,         
 	USB_STRING_DESCRIPTOR_TYPE,        
-    'C', 0, 'H', 0, '3', 0, '2', 0, 'F', 0, '2', 0 , '0', 0, 'x', 0
+    'E',0,'a',0,'s',0,'y',0,'c',0,'o',0,'n',0,
+	  ' ',0,'P',0,'r',0,'o',0,' ',0,
+	  'C',0,'o',0,'n',0,'t',0,'r',0,'o',0,'l',0,'l',0,'e',0,'r',0,
 };
 
 /* USB Device String Serial */
@@ -109,22 +111,49 @@ uint8_t USBD_StringSerial[USBD_SIZE_STRING_SERIAL] = {
 /* HID Report Descriptor */
 const uint8_t USBD_HidRepDesc[USBD_SIZE_REPORT_DESC] =
 {
-    0x06, 0x00, 0xFF,               // Usage Page (Vendor Defined 0xFF00)
-    0x09, 0x01,                     // Usage (0x01)
-    0xA1, 0x01,                     // Collection (Application)
-    0x09, 0x02,                     //   Usage (0x02)
-    0x26, 0xFF, 0x00,               //   Logical Maximum (255)
-    0x75, 0x08,                     //   Report Size (8)
-    0x15, 0x00,                     //   Logical Minimum (0)
-    0x95, 0x40,                     //   Report Count (64)
-    0x81, 0x06,                     //   Input (Data,Var,Rel,No Wrap,Linear,Preferred State,No Null Position)
-    0x09, 0x02,                     //   Usage (0x02)
-    0x15, 0x00,                     //   Logical Minimum (0)
-    0x26, 0xFF, 0x00,               //   Logical Maximum (255)
-    0x75, 0x08,                     //   Report Size (8)
-    0x95, 0x40,                     //   Report Count (64)
-    0x91, 0x06,                     //   Output (Data,Var,Rel,No Wrap,Linear,Preferred State,No Null Position,Non-volatile)
-    0xC0,                           // End Collection
+  /* USER CODE BEGIN 0 */
+  0x05, 0x01,               //Usage Page (Generic Desktop)
+  0x09, 0x05,               //Usage (Game Pad)
+  0xA1, 0x01,               //Collection (Application)
+  0x15, 0x00,               //    Logical Minimum (0)
+  0x25, 0x01,               //    Logical Maximum (1)
+  0x35, 0x00,               //    Physical Minimum (0)
+  0x45, 0x01,               //    Physical Maximum (1)
+  0x75, 0x01,               //    Report Size (1)
+  0x95, 0x10,               //    Report Count (16)
+  0x05, 0x09,               //    Usage Page (Button)
+  0x19, 0x01,               //    Usage Minimum (Button 1)
+  0x29, 0x10,               //    Usage Maximum (Button 16)
+  0x81, 0x02,               //    Input (Data,Var,Abs,NWrp,Lin,Pref,NNul,Bit)
+  0x05, 0x01,               //    Usage Page (Generic Desktop)
+  0x25, 0x07,               //    Logical Maximum (7)
+  0x46, 0x3B, 0x01,         //    Physical Maximum (315)
+  0x75, 0x04,               //    Report Size (4)
+  0x95, 0x01,               //    Report Count (1)
+  0x65, 0x14,               //    Unit (Eng Rot: Degree)
+  0x09, 0x39,               //    Usage (Hat Switch)
+  0x81, 0x42,               //    Input (Data,Var,Abs,NWrp,Lin,Pref,Null,Bit)
+  0x65, 0x00,               //    Unit (None)
+  0x95, 0x01,               //    Report Count (1)
+  0x81, 0x01,               //    Input (Cnst,Ary,Abs)
+  0x26, 0xFF, 0x00,         //    Logical Maximum (255)
+  0x46, 0xFF, 0x00,         //    Physical Maximum (255)
+  0x09, 0x30,               //    Usage (X)
+  0x09, 0x31,               //    Usage (Y)
+  0x09, 0x32,               //    Usage (Z)
+  0x09, 0x35,               //    Usage (Rz)
+  0x75, 0x08,               //    Report Size (8)
+  0x95, 0x04,               //    Report Count (4)
+  0x81, 0x02,               //    Input (Data,Var,Abs,NWrp,Lin,Pref,NNul,Bit)
+  0x06, 0x00, 0xFF,         //    Usage Page (Vendor-Defined 1)
+  0x09, 0x20,               //    Usage (Vendor-Defined 32)
+  0x95, 0x01,               //    Report Count (1)
+  0x81, 0x02,               //    Input (Data,Var,Abs,NWrp,Lin,Pref,NNul,Bit)
+  0x0A, 0x21, 0x26,         //    Usage (Vendor-Defined 9761)
+  0x95, 0x08,               //    Report Count (8)
+  0x91, 0x02,               //    Output (Data,Var,Abs,NWrp,Lin,Pref,NNul,NVol,Bit)
+  /* USER CODE END 0 */
+  0xC0    /*     END_COLLECTION	             */
 };
 
 
