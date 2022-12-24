@@ -1,7 +1,7 @@
 #include "EasyCon.h"
 
 // global variables
-static uint8_t mem[MEM_SIZE] = {0xFF, 0xFF, VERSION}; // preallocated memory for all purposes, as well as static instruction carrier
+static uint8_t mem[MEM_SIZE+4] = {0xFF, 0xFF, VERSION}; // preallocated memory for all purposes, as well as static instruction carrier
 
 // static variables
 static size_t serial_buffer_length = 0;               // current length of serial buffer

@@ -40,27 +40,6 @@
 #define HID_REPORT_DESCRIPTOR   0x22
 
 
-/* Ringbuffer define  */
-#define DEF_Ring_Buffer_Max_Blks      16
-#define DEF_RING_BUFFER_SIZE          (DEF_Ring_Buffer_Max_Blks*DEF_USBD_MAX_PACK_SIZE)
-#define DEF_RING_BUFFER_REMINE        4
-#define DEF_RING_BUFFER_RESTART       10
-
-/* Ring Buffer typedef */
-#pragma pack (1)
-typedef struct _RING_BUFF_COMM
-{
-    volatile uint8_t LoadPtr;
-    volatile uint8_t DealPtr;
-    volatile uint8_t RemainPack;
-    volatile uint8_t PackLen[DEF_Ring_Buffer_Max_Blks];
-    volatile uint8_t StopFlag;
-} RING_BUFF_COMM, pRING_BUFF_COMM;
-
-
-extern RING_BUFF_COMM  RingBuffer_Comm;
-extern uint8_t  Data_Buffer[];
-
 
 
 void USBD_init(void);

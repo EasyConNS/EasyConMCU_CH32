@@ -35,6 +35,7 @@
 #include "usb_prop.h"
 #include "usbd_compatibility_hid.h"
 #include "EasyCon_API.h"
+#include "led.h"
 /* Global define */
 
 /*********************************************************************
@@ -46,19 +47,22 @@
  */
 int main(void)
 {   
+	USB_Port_Set(DISABLE, DISABLE);
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	Delay_Init(); 
-	USART_Printf_Init(115200);
+  USART_Printf_Init(115200);
+  EasyCon_script_init();
 
 	/* Timer init */
   TIM2_Init();
-    
+  ledb_test();
   /* USBD init */
 	Set_USBConfig(); 
   USB_Init();	    
  	USB_Interrupts_Config();    
+
   HIDInit();
-	EasyCon_script_init();
+
 	EasyCon_script_start();
 	
 	while(1)

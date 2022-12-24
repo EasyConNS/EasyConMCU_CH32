@@ -5,7 +5,7 @@
 
 /*  User define */
 #ifdef CH32F103C8T6              // C8T6内存地址，大小64K
-#define userMemAddr_Start       (uint32_t)0x0800C000                        // 起始地址
+#define userMemAddr_Start       (uint32_t)0x0800F000                        // 起始地址
 #define userMemAddr_End         (uint32_t)0x08010000                        // 结束地址
 #define userMemPage_Size        (uint32_t)1024                              // 每页字节数/每页字节大小
 #define userMemPageNum          (uint32_t)64                                // 可用flash总页数

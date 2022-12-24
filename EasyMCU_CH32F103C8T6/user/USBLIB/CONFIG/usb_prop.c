@@ -17,6 +17,7 @@
 
 uint8_t Request = 0;
 
+volatile uint8_t USBD_Sleep_Status = 0x00;
 volatile uint8_t HID_Idle_Value[2] = {0};
 volatile uint8_t HID_Protocol_Value[2] = {0};
 
@@ -125,7 +126,7 @@ void USBD_SetDeviceAddress (void)
  */
 void USBD_SetDeviceFeature (void)
 {
-    
+  USBD_Sleep_Status |= 0x01;
 }
 
 
@@ -139,7 +140,7 @@ void USBD_SetDeviceFeature (void)
  */
 void USBD_ClearFeature(void)
 {
-
+  USBD_Sleep_Status &= ~0x01;
 }
 
 

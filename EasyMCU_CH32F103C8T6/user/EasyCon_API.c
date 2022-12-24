@@ -31,7 +31,7 @@ void EasyCon_write_data(uint8_t* addr,uint8_t* data,uint16_t len)
  * flash script mode:0 could clean all
  * flash config mode:1 need save other flash data
  */
-static uint8_t mem_backup[MEM_SIZE];
+static uint8_t mem_backup[MEM_SIZE+4];
 void EasyCon_write_start(uint8_t mode)
 {
     uint8_t * p_buffer;

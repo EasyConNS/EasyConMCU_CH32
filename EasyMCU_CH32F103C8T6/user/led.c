@@ -1,4 +1,5 @@
 #include "ch32f10x.h"
+#include "debug.h"
 
 void ledb_on(void)
 {
@@ -19,4 +20,12 @@ void ledb_test(void)
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init( GPIOC, &GPIO_InitStructure );
+		
+		for(int i=0; i<3; i++)
+		{
+			ledb_on();
+			Delay_Ms(300);
+			ledb_off();
+			Delay_Ms(300);
+		}
 }
