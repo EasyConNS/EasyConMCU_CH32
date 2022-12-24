@@ -14,7 +14,7 @@
 const uint8_t  USBD_DeviceDescriptor[] = { 
     USBD_SIZE_DEVICE_DESC,           // bLength
     0x01,                            // bDescriptorType (Device)
-    0x10, 0x01,                      // bcdUSB 1.10
+    0x00,0x02,//0x10, 0x01,                      // bcdUSB 1.10
     0x00,                            // bDeviceClass (Use class information in the Interface Descriptors)
     0x00,                            // bDeviceSubClass 
     0x00,                            // bDeviceProtocol 
@@ -36,9 +36,9 @@ const uint8_t  USBD_ConfigDescriptor[] = {
     USBD_SIZE_CONFIG_DESC & 0xFF, USBD_SIZE_CONFIG_DESC >> 8, // wTotalLength
     0x01,                           // bNumInterfaces
     0x01,                           // bConfigurationValue
-    0x03,                           // iConfiguration (String Index)
-    0x80,                           // bmAttributes Remote Wakeup
-    0x23,                           // bMaxPower 70mA
+    0x03,//0x03                           // iConfiguration (String Index)
+    0xA0,//0x80,                           // bmAttributes Remote Wakeup
+    0xFA,//0x46,                           // bMaxPower 70mA
 
     /* Interface Descriptor */
     0x09,                           // bLength
@@ -63,7 +63,7 @@ const uint8_t  USBD_ConfigDescriptor[] = {
     /* Endpoint Descriptor */
     0x07,                           // bLength
     0x05,                           // bDescriptorType
-    0x01,                           // bEndpointAddress: OUT Endpoint 1
+    0x02,//0x01,                           // bEndpointAddress: OUT Endpoint 1 // out 2
     0x03,                           // bmAttributes
     0x40, 0x00,                     // wMaxPacketSize
     0x01,                           // bInterval: 1mS
@@ -71,7 +71,7 @@ const uint8_t  USBD_ConfigDescriptor[] = {
     /* Endpoint Descriptor */
     0x07,                           // bLength
     0x05,                           // bDescriptorType
-    0x82,                           // bEndpointAddress: IN Endpoint 2
+    0x81,//0x82,                           // bEndpointAddress: IN Endpoint 2 // in 1
     0x03,                           // bmAttributes
     0x40, 0x00,                     // wMaxPacketSize
     0x01,                           // bInterval: 1mS

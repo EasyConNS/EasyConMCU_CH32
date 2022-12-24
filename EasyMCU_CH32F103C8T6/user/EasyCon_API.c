@@ -105,7 +105,6 @@ void EasyCon_blink_led(void)
 void EasyCon_serial_send(const char DataByte)
 {
 		USART_SendData(USART1, (u8)DataByte);
-    //umain_send8B((uint8_t *)&DataByte, 1);
     EasyCon_blink_led();
 }
 

@@ -1,5 +1,6 @@
 #include "HID.h"
 #include "EasyCon_API.h"
+#include "usb_pwr.h"
 
 USB_JoystickReport_Input_t next_report;
 
@@ -25,14 +26,15 @@ void SetRightStick(const uint8_t RX, const uint8_t RY)
 {
   next_report.RX = RX; next_report.RY = RY;
 }
-
+extern  __IO uint32_t bDeviceState; /* USB device status */
 int usbd_send(uint8_t *usbd_send_buf, char *TAG)
 {
+	if( bDeviceState != CONFIGURED )
+		return 1;
 	//ledb_on();
-	HIDTxBuffer[0] = sizeof(next_report) + 1;
-	memcpy(HIDTxBuffer + 1,&next_report,sizeof(next_report));
-	
-	if(USBD_ENDPx_DataUp( ENDP2, HIDTxBuffer, sizeof(next_report) + 1 ) == NoREADY)	
+	memcpy(HIDTxBuffer,&next_report,sizeof(next_report));
+
+	if(USBD_ENDPx_DataUp( ENDP1, HIDTxBuffer, sizeof(next_report) ) == NoREADY)	
 	{
 		return 1;
 	}

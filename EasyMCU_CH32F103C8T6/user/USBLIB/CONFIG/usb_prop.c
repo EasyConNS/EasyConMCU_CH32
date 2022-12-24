@@ -238,16 +238,14 @@ void USBD_Reset(void)
     _ClearDTOG_TX(ENDP0);
 
     SetEPType(ENDP1, EP_INTERRUPT);
-    SetEPTxStatus(ENDP1, EP_TX_DIS);
-    SetEPRxAddr(ENDP1, ENDP1_RXADDR);
-    SetEPRxCount(ENDP1, DEF_USBD_MAX_PACK_SIZE);
-    SetEPRxStatus(ENDP1, EP_RX_VALID );
+	  SetEPTxAddr(ENDP1, ENDP1_TXADDR);
+    SetEPTxStatus(ENDP1, EP_TX_NAK);
     _ClearDTOG_TX(ENDP1);
     _ClearDTOG_RX(ENDP1);
 
     SetEPType(ENDP2, EP_INTERRUPT);
-    SetEPTxAddr(ENDP2, ENDP2_TXADDR);
-    SetEPTxStatus(ENDP2, EP_TX_NAK);
+    SetEPRxAddr(ENDP2, ENDP2_RXADDR);
+    SetEPTxStatus(ENDP2, EP_RX_DIS);
     SetEPRxStatus(ENDP2,EP_RX_DIS);
     _ClearDTOG_TX(ENDP2);
     _ClearDTOG_RX(ENDP2);

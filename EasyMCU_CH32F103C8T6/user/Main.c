@@ -82,13 +82,16 @@ int main(void)
   //  UART2_DMA_Init();
 
 	/* Timer init */
-    TIM2_Init();
+  TIM2_Init();
     
   /* USBD init */
 	Set_USBConfig(); 
   USB_Init();	    
  	USB_Interrupts_Config();    
-    
+  HIDInit();
+	EasyCon_script_init();
+	EasyCon_script_start();
+	
 	while(1)
 	{
 		// Process local script instructions.
