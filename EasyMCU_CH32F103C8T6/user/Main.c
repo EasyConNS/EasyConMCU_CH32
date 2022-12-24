@@ -37,28 +37,6 @@
 #include "EasyCon_API.h"
 /* Global define */
 
-/* Global Variable */    
-
-/*********************************************************************
- * @fn      Var_Init
- *
- * @brief   Software parameter initialization
- *
- * @return  none
- */
-void Var_Init(void)
-{
-    uint16_t i;
-    RingBuffer_Comm.LoadPtr = 0;
-    RingBuffer_Comm.StopFlag = 0;
-    RingBuffer_Comm.DealPtr = 0;
-    RingBuffer_Comm.RemainPack = 0;
-    for(i=0; i<DEF_Ring_Buffer_Max_Blks; i++)
-    {
-        RingBuffer_Comm.PackLen[i] = 0;
-    }
-}
-
 /*********************************************************************
  * @fn      main
  *
@@ -71,15 +49,6 @@ int main(void)
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	Delay_Init(); 
 	USART_Printf_Init(115200);
-	printf("SystemClk:%d\r\n",SystemCoreClock);
-	printf("USBHD Compatibility HID Example\r\n");
-
-	/* Variables init */
-  //  Var_Init();
-
-	/* UART2 init */
-  //  UART2_Init();
-  //  UART2_DMA_Init();
 
 	/* Timer init */
   TIM2_Init();
@@ -99,11 +68,6 @@ int main(void)
 		
 		// send report
 		HIDTask();
-//	    if( bDeviceState == CONFIGURED )
-//	    {
-//			UART2_Rx_Service();
-//			UART2_Tx_Service();
-//	    }
 	}
 }
 

@@ -15,7 +15,6 @@
 #include "debug.h"
 #include "husb_desc.h"
 #include "ch32f10x_usb.h"
-#include "UART.h"
 
 /******************************************************************************/
 /* Global Define */

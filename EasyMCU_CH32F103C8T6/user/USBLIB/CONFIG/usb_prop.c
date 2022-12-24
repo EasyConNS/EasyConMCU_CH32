@@ -15,15 +15,8 @@
 #include "hw_config.h"
 #include "usbd_compatibility_hid.h"
 
-
-/* Ringbuffer */
-RING_BUFF_COMM  RingBuffer_Comm;
-__attribute__ ((aligned(4))) uint8_t Data_Buffer[DEF_RING_BUFFER_SIZE];
-
 uint8_t Request = 0;
 
-
-extern uint8_t USBD_Endp2_Busy;
 volatile uint8_t HID_Idle_Value[2] = {0};
 volatile uint8_t HID_Protocol_Value[2] = {0};
 
@@ -162,19 +155,19 @@ void USBD_ClearFeature(void)
  */
 void USBD_Status_In(void)
 {
-  uint16_t i;
-  if ( Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT) )
-  {
-    if (pInformation->USBbRequest == HID_SET_REPORT)
-    {
-      printf("Set Report:\n");
-      for (i = 0; i < 64; ++i)
-      {
-          printf("%02x ",HID_Report_Buffer[i]);
-      }
-      printf("\n");
-    }
-  }
+//  uint16_t i;
+//  if ( Type_Recipient == (CLASS_REQUEST | INTERFACE_RECIPIENT) )
+//  {
+//    if (pInformation->USBbRequest == HID_SET_REPORT)
+//    {
+//      printf("Set Report:\n");
+//      for (i = 0; i < 64; ++i)
+//      {
+//          printf("%02x ",HID_Report_Buffer[i]);
+//      }
+//      printf("\n");
+//    }
+//  }
 }
 
 /*********************************************************************
@@ -509,7 +502,7 @@ uint8_t *HID_Get_Report(uint16_t Length)
   }
   else
   {
-    return (uint8_t*)&HID_Report_Buffer[0];
+    return NULL;//(uint8_t*)&HID_Report_Buffer[0];
   }
 }
 
@@ -531,7 +524,7 @@ uint8_t *HID_Set_Report(uint16_t Length)
   }
   else
   {
-    return (uint8_t*)&HID_Report_Buffer[0];
+    return NULL;//(uint8_t*)&HID_Report_Buffer[0];
   }
 }
 

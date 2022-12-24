@@ -1,6 +1,7 @@
 #include "HID.h"
 #include "EasyCon_API.h"
 #include "usb_pwr.h"
+#include "led.h"
 
 USB_JoystickReport_Input_t next_report;
 
@@ -31,14 +32,14 @@ int usbd_send(uint8_t *usbd_send_buf, char *TAG)
 {
 	if( bDeviceState != CONFIGURED )
 		return 1;
-	//ledb_on();
+	ledb_on();
 	memcpy(HIDTxBuffer,&next_report,sizeof(next_report));
 
 	if(USBD_ENDPx_DataUp( ENDP1, HIDTxBuffer, sizeof(next_report) ) == NoREADY)	
 	{
 		return 1;
 	}
-	//ledb_off();
+	ledb_off();
 	return 0;
 }
 

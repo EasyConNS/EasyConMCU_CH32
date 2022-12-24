@@ -15,15 +15,6 @@
 #include "usb_desc.h"
 #include "usb_prop.h"
 
-
-#define DEF_UART2_BUF_SIZE            2048
-#define DEF_UART2_TOUT_TIME           30             // NOTE: the timeout time should be set according to the actual baud rate.
-
-#define SET_REPORT_DEAL_OVER          0x00
-#define SET_REPORT_WAIT_DEAL          0x01
-
-
-extern uint8_t  HID_Report_Buffer[DEF_USBD_MAX_PACK_SIZE];               // HID Report Buffer
 extern uint8_t  HIDTxBuffer[DEF_USBD_MAX_PACK_SIZE];
 
 extern void UART2_Tx_Service( void );

@@ -14,8 +14,7 @@
 #include "usb_istr.h"
 #include "usb_pwr.h"
 #include "usb_prop.h"
-uint8_t USBD_Endp1_Busy,USBD_Endp2_Busy;
-u16 USB_Rx_Cnt=0; 
+uint8_t USBD_Endp1_Busy;
 
 /*********************************************************************
  * @fn      EP1_IN_Callback
@@ -28,48 +27,6 @@ void EP1_IN_Callback (void)
 { 
 	USBD_Endp1_Busy = 0;
 }
-
-///*********************************************************************
-// * @fn      EP2_IN_Callback
-// *
-// * @brief  Endpoint 2 IN.
-// *
-// * @return  none
-// */
-//void EP2_IN_Callback (void)
-//{ 
-//	USBD_Endp2_Busy = 0;
-//	USBD_Endp1_Busy = 0;
-//}
-
-///*********************************************************************
-// * @fn      EP1_OUT_Callback
-// *
-// * @brief  Endpoint 1 OUT.
-// *
-// * @return  none
-// */
-//void EP1_OUT_Callback (void)
-//{ 
-////	PMAToUserBufferCopy( &Data_Buffer[(RingBuffer_Comm.LoadPtr) * DEF_USBD_MAX_PACK_SIZE], GetEPRxAddr( ENDP1 ), GetEPRxCount( ENDP1 ) );
-////	RingBuffer_Comm.PackLen[RingBuffer_Comm.LoadPtr] = DEF_USBD_MAX_PACK_SIZE;
-////	RingBuffer_Comm.LoadPtr ++;
-////	if(RingBuffer_Comm.LoadPtr == DEF_Ring_Buffer_Max_Blks)
-////	{
-////		RingBuffer_Comm.LoadPtr = 0;
-////	}
-////	RingBuffer_Comm.RemainPack ++;
-////	if(RingBuffer_Comm.RemainPack >= DEF_Ring_Buffer_Max_Blks-DEF_RING_BUFFER_REMINE)
-////	{
-////		SetEPRxStatus(ENDP1,EP_RX_NAK);
-////		RingBuffer_Comm.StopFlag = 1;
-////	}
-////	else
-////	{
-////		SetEPRxValid(ENDP1);
-////	}
-
-//}
 
 /*********************************************************************
  * @fn      USBD_ENDPx_DataUp
@@ -95,16 +52,16 @@ uint8_t USBD_ENDPx_DataUp( uint8_t endp, uint8_t *pbuf, uint16_t len )
 		SetEPTxStatus( ENDP1, EP_TX_VALID );
 		
 	}
-  else if( endp == ENDP2 )
-	{
-		if (USBD_Endp2_Busy)
-		{
-			return NoREADY;
-		}
-		USB_SIL_Write( EP2_IN, pbuf, len );
-		USBD_Endp2_Busy = 1;
-		SetEPTxStatus( ENDP2, EP_TX_VALID );
-	}
+//  else if( endp == ENDP2 )
+//	{
+//		if (USBD_Endp2_Busy)
+//		{
+//			return NoREADY;
+//		}
+//		USB_SIL_Write( EP2_IN, pbuf, len );
+//		USBD_Endp2_Busy = 1;
+//		SetEPTxStatus( ENDP2, EP_TX_VALID );
+//	}
 	else
 	{
 		return NoREADY;
