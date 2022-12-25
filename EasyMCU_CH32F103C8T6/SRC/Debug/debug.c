@@ -184,13 +184,13 @@ void USART_Printf_Init(u32 baudrate)
 #if (DEBUG == DEBUG_UART1)	
   USART_Init(USART1, &USART_InitStructure); 
 	USART1->STATR = 0x00C0;
-  USART_ITConfig( USART1, USART_IT_RXNE, ENABLE );
-  
-	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-	NVIC_Init( &NVIC_InitStructure );
+//  USART_ITConfig( USART1, USART_IT_RXNE, ENABLE );
+//  
+//	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
+//	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;
+//	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//	NVIC_Init( &NVIC_InitStructure );
 	
 	USART_Cmd(USART1, ENABLE);
 #elif (DEBUG == DEBUG_UART2)	

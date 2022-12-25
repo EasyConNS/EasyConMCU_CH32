@@ -17,7 +17,6 @@ extern "C" {
 #include "string.h"
 #include "debug.h"
 #include "string.h"
-#include "PRINTF.h"
 #include "ch32f10x_usbfs_device.h"
 #include "ch32f10x_conf.h"
 
@@ -76,23 +75,14 @@ typedef struct __attribute__((packed)) _UART_CTL
 /* Constant, variable extents */
 /* The following are serial port transmit and receive related variables and buffers */
 extern volatile UART_CTL Uart;                                                    /* Serial x control related structure */
-extern volatile uint32_t UARTx_Rx_DMACurCount;                                    /* Serial x receive DMA current count */
-extern volatile uint32_t UARTx_Rx_DMALastCount;                                   /* last count of DMA received by serial x */
+
 extern __attribute__ ((aligned(4))) uint8_t UART1_Tx_Buf[ DEF_UARTx_TX_BUF_LEN ]; /* Serial x transmit buffer */
-extern __attribute__ ((aligned(4))) uint8_t UART1_Rx_Buf[ DEF_UARTx_RX_BUF_LEN ]; /* Serial x transmit buffer */
 
 /***********************************************************************************************************************/
 /* Function extensibility */
-extern uint8_t RCC_Configuration( void );
-extern void NVIC_Configuration( void );
-extern void TIM2_Init( void );
-extern void UART1_CfgInit( uint32_t baudrate, uint8_t stopbits, uint8_t parity ); /* UART1 initialization */
 extern void UART1_ParaInit( uint8_t mode );										  /* Serial port parameter initialization */
-extern void UART1_DMAInit( uint8_t type, uint8_t *pbuf, uint32_t len );           /* Serial port 1-related DMA initialization */
-extern void UART1_Init( uint8_t mode, uint32_t baudrate, uint8_t stopbits, uint8_t parity ); /* Serial port 1 initialization */
-extern void UART1_DataTx_Deal( void );                                            /* Serial port 1 data sending processing  */
-extern void UART1_DataRx_Deal( void );                                            /* Serial port 1 data reception processing */
-extern void UART1_USB_Init( void );                                               /* USB serial port initialization*/
+extern void UART1_DataTx_Deal( void );                                            /* Serial port 1 data sending processing  */                                           /* Serial port 1 data reception processing */
+extern void UART_USB_Init( void );                                               /* USB serial port initialization*/
 
 #ifdef __cplusplus
 }

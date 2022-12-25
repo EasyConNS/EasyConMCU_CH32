@@ -9,6 +9,7 @@
  *******************************************************************************/
 
 #include "ch32f10x_usbfs_device.h"
+#include "uart.h"
 
 /*******************************************************************************/
 /* Variable Definition */
@@ -361,7 +362,7 @@ void USBHD_IRQHandler( void )
                                       Uart.Com_Cfg[ 6 ] = USBHD_EP0_Buf[ 6 ];
                                       Uart.Com_Cfg[ 7 ] = DEF_UARTx_RX_TIMEOUT;
                                     
-                                      UART1_USB_Init( );
+                                      UART_USB_Init( );
                                     printf( "set baud\r\n" );
                                  }
                             }

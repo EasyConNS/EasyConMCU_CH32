@@ -5,6 +5,7 @@
 /**********************************************************************/
 #include "flash.h"
 #include "led.h"
+#include "uart.h"
 
 /**********************************************************************/
 // EasyCon API, you need to implement all of the AIP
@@ -104,7 +105,12 @@ void EasyCon_blink_led(void)
  */
 void EasyCon_serial_send(const char DataByte)
 {
-		USART_SendData(USART1, (u8)DataByte);
+		NVIC_DisableIRQ( USBHD_IRQn );
+		Uart.USB_Up_IngFlag = 0x01;
+		Uart.USB_Up_TimeOut = 0x00;
+		USBHD_Endp_DataUp( DEF_UEP2, (uint8_t *)&DataByte, 1, DEF_UEP_CPY_LOAD );
+		NVIC_EnableIRQ( USBHD_IRQn );
+		//USART_SendData(USART1, (u8)DataByte);
     EasyCon_blink_led();
 }
 

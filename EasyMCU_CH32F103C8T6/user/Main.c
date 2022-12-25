@@ -36,6 +36,8 @@
 #include "usbd_compatibility_hid.h"
 #include "EasyCon_API.h"
 #include "led.h"
+#include "uart.h"
+#include "ch32f10x_usbfs_device.h"
 /* Global define */
 
 /*********************************************************************
@@ -46,13 +48,19 @@
  * @return  none
  */
 int main(void)
-{   
+{
+	Delay_Init(); 
 	USB_Port_Set(DISABLE, DISABLE);
+	USBHD_Device_Init( DISABLE );
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	Delay_Init(); 
   USART_Printf_Init(115200);
   EasyCon_script_init();
-
+	/* USB20 device init */
+	UART1_ParaInit(1);
+	USBHD_RCC_Init( );
+	USBHD_Device_Init( ENABLE );
+  
 	/* Timer init */
   TIM2_Init();
   ledb_test();
@@ -72,6 +80,8 @@ int main(void)
 		
 		// send report
 		HIDTask();
+		
+		UART1_DataTx_Deal();
 	}
 }
 

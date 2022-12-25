@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>CH32F103C8T6</Define>
               <Undefine></Undefine>
-              <IncludePath>.\SRC\CMSIS;.\SRC\Debug;.\SRC\Startup;.\SRC\StdPeriphDriver\inc;.\SRC\StdPeriphDriver\src;.\user;..\SimulateCDC;.\user\USBLIB\CONFIG;.\user\USBLIB\USB-Driver\inc</IncludePath>
+              <IncludePath>.\SRC\CMSIS;.\SRC\Debug;.\SRC\Startup;.\SRC\StdPeriphDriver\inc;.\SRC\StdPeriphDriver\src;.\user;..\SimulateCDC;.\user\USBLIB\CONFIG;.\user\USBLIB\USB-Driver\inc;.\user\HUSB_Device</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -689,6 +689,26 @@
               <FileName>usb_pwr.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\user\USBLIB\CONFIG\usb_pwr.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>husb</GroupName>
+          <Files>
+            <File>
+              <FileName>ch32f10x_usbfs_device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\HUSB_Device\ch32f10x_usbfs_device.c</FilePath>
+            </File>
+            <File>
+              <FileName>husb_desc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\HUSB_Device\husb_desc.c</FilePath>
+            </File>
+            <File>
+              <FileName>UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\user\HUSB_Device\UART.c</FilePath>
             </File>
           </Files>
         </Group>
