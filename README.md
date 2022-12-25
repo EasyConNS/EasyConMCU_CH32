@@ -10,7 +10,15 @@ EasyConMCU_CH32，目前最便宜，功能也是最完整的方案，不需要�
 
 > https://item.taobao.com/item.htm?spm=a1z09.2.0.0.780d2e8dz0P9f7&id=676716722836&_u=p1g76mj93bf5
 
+后来群友说有很多家，自己找便宜的就行了
 
+> https://m.tb.cn/h.U9FAjcw?tk=5r2wdVHpy8x
+>
+> https://m.tb.cn/h.UQwhYKN?tk=UQ7ldVHpxoz 
+>
+> https://m.tb.cn/h.Uj5OHnW?tk=wqmfdVHpPAB
+>
+> https://m.tb.cn/h.U9vI8vX?tk=FNiLdVtjNAe
 
 ![image-20221216220451721](http://img.elmagnifico.tech:9514/static/upload/elmagnifico/202212162204792.png)
 
@@ -36,7 +44,7 @@ EasyConMCU_CH32，目前最便宜，功能也是最完整的方案，不需要�
 
 从群文件中下载
 
-- CH372串口驱动
+- CH375串口驱动
 - 烧写程序WCHISPTool_Setup
 
 分别解压并安装
