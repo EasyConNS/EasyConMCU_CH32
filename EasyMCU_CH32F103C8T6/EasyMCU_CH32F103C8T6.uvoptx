@@ -157,55 +157,23 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>46</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user\HID.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
           <LineNumber>63</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134224468</Address>
+          <Address>134224540</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user\EasyCon_API.c</Filename>
+          <Filename>.\user\EasyCon_API.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\CH32F103C8T6\user/EasyCon_API.c\63</Expression>
         </Bp>
         <Bp>
-          <Number>2</Number>
+          <Number>1</Number>
           <Type>0</Type>
           <LineNumber>40</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134221088</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user\EasyCon.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\CH32F103C8T6\user/EasyCon.c\40</Expression>
-        </Bp>
-        <Bp>
-          <Number>3</Number>
-          <Type>0</Type>
-          <LineNumber>49</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134221120</Address>
           <ByteObject>0</ByteObject>
@@ -214,9 +182,57 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>&lt;1&gt;.\user\EasyCon.c</Filename>
+          <Filename>.\user\EasyCon.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\CH32F103C8T6\user/EasyCon.c\49</Expression>
+          <Expression>\\CH32F103C8T6\user/EasyCon.c\40</Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>956</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134224356</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\user\EasyCon.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\CH32F103C8T6\user/EasyCon.c\956</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>136</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134221408</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\user\EasyCon.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\CH32F103C8T6\user/EasyCon.c\136</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>847</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134223874</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>.\user\EasyCon.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\CH32F103C8T6\user/EasyCon.c\847</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

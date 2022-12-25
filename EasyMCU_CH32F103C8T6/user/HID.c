@@ -30,16 +30,23 @@ void SetRightStick(const uint8_t RX, const uint8_t RY)
 extern  __IO uint32_t bDeviceState; /* USB device status */
 int usbd_send(uint8_t *usbd_send_buf, char *TAG)
 {
+	static int led_cnt = 0;
 	if( bDeviceState != CONFIGURED )
 		return 1;
-	ledb_on();
+	if(led_cnt++<100)
+		ledb_on();
 	memcpy(HIDTxBuffer,&next_report,sizeof(next_report));
 
 	if(USBD_ENDPx_DataUp( ENDP1, HIDTxBuffer, sizeof(next_report) ) == NoREADY)	
 	{
 		return 1;
 	}
-	ledb_off();
+	if(led_cnt>100)
+		ledb_off();
+	
+	if(led_cnt>200)
+		led_cnt = 0;
+	
 	return 0;
 }
 

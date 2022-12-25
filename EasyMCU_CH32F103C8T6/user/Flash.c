@@ -9,10 +9,10 @@ uint8_t fl_LockState_Flag = 0;                                   //flash状态�
 int flash_writeUnlock(void)
 {
 		if(fl_LockState_Flag)
-			return fl_LockState_Flag;
+			return 1;
     fl_LockState_Flag = 1;  
 		FLASH_Unlock();    		
-    return fl_LockState_Flag;                          
+    return 0;                          
 }
 
 volatile FLASH_Status FLASHStatus = FLASH_COMPLETE;
