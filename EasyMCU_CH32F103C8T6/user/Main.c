@@ -53,7 +53,6 @@ int main(void)
 	USB_Port_Set(DISABLE, DISABLE);
 	USBHD_Device_Init( DISABLE );
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
-	Delay_Init(); 
   USART_Printf_Init(115200);
   EasyCon_script_init();
 	/* USB20 device init */
