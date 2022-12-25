@@ -86,6 +86,18 @@ HUSB连接PC，另外一个USB连接NS
 
 
 
+
+
+## 开源
+
+使用EasyConAPI，适配CH32芯片的例程
+
+> https://github.com/EasyConNS/EasyMCU_CH32
+>
+> https://github.com/EasyConNS/EasyConAPI
+
+
+
 ## 常见问题
 
 伊机控连接上了，NS没有反应，重启NS
